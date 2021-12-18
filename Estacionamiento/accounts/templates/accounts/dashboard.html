@@ -1,0 +1,51 @@
+{% extends 'accounts/main.html' %}
+{% block content %}
+{% include 'accounts/status.html' %}
+
+<br>
+
+<div class="row">
+	<div class="col-md-5">
+		<h5>Dia:</h5>
+		<hr>
+		<div class="card card-body">
+			<a class="btn btn-primary  btn-sm btn-block" href="">Registrar Nuevo Auto</a>
+			<table class="table table-sm">
+				<tr>
+					<th></th>
+					<th>Placa</th>
+					<th>Placa</th>
+				</tr>
+
+			</table>
+		</div>
+	</div>
+
+	<div class="col-md-7">
+		<h5>Por Hora</h5>
+		<hr>
+		<div class="card card-body">
+			<a class="btn btn-primary  btn-sm btn-block" href="">Autos Estacionados</a>
+			<table class="table table-sm">
+				<tr>
+					<th>Auto</th>
+					<th>Fecha de Ingreso</th>
+					<th>Status</th>
+					<th>Tipo</th>
+					<th>Cobrar</th>
+				</tr>
+		<!-- {% for cliente in clientes %}
+                <tr>
+                    <td>{{cliente.placa}}</td>
+                    <td>{{cliente.dia_ingreso}}</td>
+                    <td>{{cliente.status}}</td>
+                    <td>{{cliente.categoria}}</td>
+                    <td><a href="#">Cobrar</a></td>
+                </tr>
+        {% endfor %} -->
+			</table>
+		</div>
+	</div>
+
+</div>
+{% endblock %}
