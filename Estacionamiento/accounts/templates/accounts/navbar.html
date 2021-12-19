@@ -9,6 +9,11 @@
         <a class="nav-item nav-link active" href="#">Dashboard</a>
         <a class="nav-item nav-link" href="#">Clientes</a>
         <a class="nav-item nav-link" href="#">Registros</a>
+        {% if user.is_authenticated %}
+          <a class="nav-item nav-link" href="{% url 'logout' %}">Salir</a>
+
+        {% endif %}
+        
 
       </div>
     </div>
