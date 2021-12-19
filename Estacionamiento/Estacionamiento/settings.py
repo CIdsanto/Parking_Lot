@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts',
     'usuarios',
+    
 ]
 
 MIDDLEWARE = [
@@ -83,9 +84,9 @@ DATABASES = {
         'USER': 'root',
         'PASSWORD': '',
         'NAME':'estacionamiento',
-        'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
-        }
+        # 'OPTIONS': {
+        #     'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+        # }
     }
 }
 
