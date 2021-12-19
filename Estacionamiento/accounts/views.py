@@ -8,7 +8,19 @@ from .forms import ClienteForm
 def home(request):
     Size_Estacionamiento = Size.objects.all()
     Vehiculo = Clientes.objects.all()
+    # placa_cliente = Clientes.objects.get(pk= cliente_id)
     return render(request, 'accounts/dashboard.html', {'Size_Estacionamiento': Size_Estacionamiento, 'Vehiculo' : Vehiculo})
+
+def pagos(request):
+    estacionados= Clientes.objects.all()
+    return render(request, 'accounts/incomes.html', {'estacionados': estacionados} )
+
+def mostrar_pagos(request, cliente_id):
+    placa_cliente = Clientes.objects.get(pk= cliente_id)
+    # Vehiculo = Clientes.objects.all()
+
+    return render(request, 'accounts/mostrar_pagos.html', {'placa_cliente': placa_cliente } )
+
 
 def clientes(request):
     submitted = False
