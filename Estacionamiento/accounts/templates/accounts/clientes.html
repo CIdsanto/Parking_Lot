@@ -1,81 +1,29 @@
-{%  extends 'accounts/main.html' %}
+{% load static %}
 
-{% block content %}
+<link rel="stylesheet" href="{% static 'css/form.css' %}">
 
-	<br>
-
-<div class="row">
-	<div class="col-md">
-		<div class="card card-body">
-			<h5>Registrar Nuevo Vehiculo:</h5>
-			<hr>
-			<a class="btn btn-outline-info  btn-sm btn-block" href="">Actualizar Vehiculo</a>
-			<a class="btn btn-outline-danger  btn-sm btn-block" href="">Cobrar Vehiculo</a>
-
-		</div>
-	</div>
-
-	<div class="col-md">
-		<div class="card card-body">
-			<h5>Informacion de Contacto</h5>
-			<hr>
-			<p>Vehiculo: </p>
-			<p>Placa: </p>
-		</div>
-	</div>
-
-	<div class="col-md">
-		<div class="card card-body">
-			<h5>Vehiculos Registados</h5>
-			<hr>
-			<h1 style="text-align: center;padding: 10px"></h1>
-		</div>
-	</div>
-</div>
-
-
-<br>
-<div class="row">
-	<div class="col">
-		<div class="card card-body">
-			<form method="get">
-
-		    <button class="btn btn-primary" type="submit">Buscar</button>
-		  </form>
-		</div>
-	</div>
+<div class="container">
+  
+	<h2>Ingresa Nuevo Vehiculo<small>Estacionamiento</small></h2>
 	
-</div>
-<br>
+	<form>
+	  
+	  <div class="group">      
+		<input type="text" required>
+		<span class="highlight"></span>
+		<span class="bar"></span>
+		<label>Name</label>
+	  </div>
+		
+	  <div class="group">      
+		<input type="text" required>
+		<span class="highlight"></span>
+		<span class="bar"></span>
+		<label>Email</label>
+	  </div>
+	  
+	</form>
+		
 
-<div class="row">
-	<div class="col-md">
-		<div class="card card-body">
-			<table class="table table-sm">
-				<tr>
-					<th>Placa</th>
-					<th>Tipo</th>
-					<th>Fecha de Ingreso</th>
-					<th>Status</th>
-					<th>Cobrar</th>
-					<th>Cobrar</th>
-
-				</tr>
-
-                {% for ticket in tickets %}
-                    <tr>
-                    <td>aq</td>
-                    <td>{{ticket.status}}</td>
-                    <td>{{ticket.dia_ingreso}}</td>
-                    <td>{{ticket.status}}</td>
-                    <td>{{ticket.pago}}</td>
-                    <td>Cobrar</td>
-
-                    </tr>
-                {% endfor %}
-			</table>
-		</div>
-	</div>
-</div>
-
-{% endblock %}
+	
+  </div>
