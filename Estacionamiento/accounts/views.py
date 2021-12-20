@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django import forms
+from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from .models import *
 from django.http import HttpResponseRedirect
@@ -8,19 +9,26 @@ from django.db.models import Q
 
 def home(request):
     Size_Estacionamiento = Size.objects.all()
-    Vehiculo = Clientes.objects.all()
+    Vehiculo = Clientes.objects.all()        
     # placa_cliente = Clientes.objects.get(pk= cliente_id)
     return render(request, 'accounts/dashboard.html', {'Size_Estacionamiento': Size_Estacionamiento, 'Vehiculo' : Vehiculo})
+
+def update(request, cliente_id ):
+    update_cliente = Clientes.objects.get(pk= cliente_id)
+    return render(request, 'accounts/update.html', {'update_cliente': update_cliente} )
 
 def pagos(request):
     estacionados= Clientes.objects.all()
     return render(request, 'accounts/incomes.html', {'estacionados': estacionados} )
 
 def mostrar_pagos(request, cliente_id):
-    placa_cliente = Clientes.objects.get(pk= cliente_id)
-    # Vehiculo = Clientes.objects.all()
 
-    return render(request, 'accounts/mostrar_pagos.html', {'placa_cliente': placa_cliente } )
+    placa_cliente = Clientes.objects.get(pk= cliente_id)
+    form = ClienteForm(request.POST or None, instance=placa_cliente)
+    if form.is_valid():
+        form.save()
+        return redirect('home')
+    return render(request, 'accounts/mostrar_pagos.html', {'placa_cliente': placa_cliente, 'form': form } )
 
 def search_vehiculo(request):
     if request.method == "POST":
@@ -47,7 +55,7 @@ def clientes(request):
             submitted = True 
     return render(request, 'accounts/clientes.html', {'form': form, 'submitted':submitted})
 
-
+ 
 # def info(request):
 #     Size_Estacionamiento = Size.objects.all()
 #     return render(request, 'accounts/dashboard.html', {'Size_Estacionamiento': Size_Estacionamiento})

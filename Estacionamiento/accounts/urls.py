@@ -7,6 +7,8 @@ urlpatterns = [
     path('pagos', views.pagos, name='pagos'),
     path('mostrar_pagos/<cliente_id>', views.mostrar_pagos, name='mostrar-pagos'),
     path('search_vehiculo', views.search_vehiculo, name='search'),
+    path('update/<cliente_id>', views.update, name='update'),
+
 
 
     

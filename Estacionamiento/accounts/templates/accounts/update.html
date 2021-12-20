@@ -1,13 +1,14 @@
+
 {% extends 'accounts/Panel.html' %}
 
 {% block content %}
 
 <div class="project-boxes jsGridView">
-	
+	{% for placa_cliente in placa_clientes %}
 			<div class="project-box-wrapper">
 			  <div class="project-box" style="background-color: #f1c3eb;">
 				<div class="project-box-header">
-				  <span>{{ placa_cliente.entrada|date:"M d, Y,  P" }}</span>
+				  <span>{{ vehiculo.entrada|date:"M d, Y,  P" }}</span>
 				  <!-- <span>{{ vehiculo.entrada|date:"G" }}</span> -->
 	
 				  <div class="more-wrapper">
@@ -20,8 +21,8 @@
 			  </div>
 			</div>
 			<div class="project-box-content-header">
-			  <p class="box-content-header">{{ placa_cliente.placa }}</p>
-			  <p class="box-content-subheader">{{ placa_cliente.tipo }}</p>
+			  <p class="box-content-header">{{ vehiculo.placa }}</p>
+			  <p class="box-content-subheader">{{ vehiculo.tipo }}</p>
 			</div>
 			<div class="box-progress-wrapper">
 			  <p class="box-progress-header">Progress</p>
@@ -41,15 +42,12 @@
 				</button>
 			  </div>
 			  <div class="days-left" style="color: #ff942e;">
-				<!-- <a href="{% url 'home' %}update/{{ placa_cliente.id }}">Liquidar</a> -->
+          <a href="mostrar_pagos/{{ vehiculo.id }} ">Pagar</a>
+
 			  </div>
 			</div>
 		  </div>
 		</div>
-		<form action="" method= POST>
-			{% csrf_token %}
-			{{ form.as_p }}
-		<br/>
-		<input type="submit" value="Update">
-		</form>
+	{% endfor %}
+
 {% endblock %}
