@@ -5,12 +5,16 @@
 
 <div class="project-boxes jsGridView">
 	{% for vehiculo in Vehiculo %}
+
+
 			<div class="project-box-wrapper">
 			  <div class="project-box" style="background-color: #f1c3eb;">
 				<div class="project-box-header">
 				  <span>{{ vehiculo.entrada|date:"M d, Y,  P" }}</span>
 				  <!-- <span>{{ vehiculo.entrada|date:"G" }}</span> -->
-	
+
+
+						
 				  <div class="more-wrapper">
 					<button class="project-btn-more">
 					  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
@@ -20,8 +24,13 @@
 					</button>
 			  </div>
 			</div>
+		{% with alpha=1 beta=2 %}
+			{% if alpha == 1 %}
+				{{ vehiculo.status }}
+			{% endif %}
+		{% endwith %}
 			<div class="project-box-content-header">
-			  <p class="box-content-header">{{ vehiculo.placa }}</p>
+			  <p class="box-content-header">{{ vehiculo.status }}</p>
 			  <p class="box-content-subheader">{{ vehiculo.tipo }}</p>
 			</div>
 			<div class="box-progress-wrapper">

@@ -16,10 +16,11 @@ class ClienteForm(ModelForm):
 
 
         # }
-        # widgets = {
-        #     'placa': forms.TextInput(attrs={'class':'input', 'placeholder':'Placa'}),
-        #     'entrada': forms.DateField,
-        #     'placa': forms.TextInput(attrs={'class':'input', 'placeholder':'Placa'}),
-        #     'placa': forms.TextInput(attrs={'class':'input', 'placeholder':'Placa'}),
+        widgets = {
+            # 'placa': forms.TextInput(attrs={'class':'input', 'placeholder':'Placa'}),
+            'entrada': forms.TextInput(attrs={ 'value':'06.10.2017 20:12:45', 'size':'19', 'onClick':'xCal(this, {lang: "en", order: 1})', 'onKeyUp':'xCal()', }),
+            'salida': forms.TextInput(attrs={ 'value':'06.10.2017 20:12:45', 'size':'19', 'onClick':'xCal(this)', 'onKeyUp':'xCal()', }),
 
-        # }
+            # 'placa': forms.TextInput(attrs={'class':'input', 'placeholder':'Placa'}),
+
+        }
