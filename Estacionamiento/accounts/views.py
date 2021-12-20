@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from .models import *
 from django.http import HttpResponseRedirect
 from .forms import ClienteForm
+from django.db.models import Q 
 # Create your views here.
 
 def home(request):
@@ -21,6 +22,17 @@ def mostrar_pagos(request, cliente_id):
 
     return render(request, 'accounts/mostrar_pagos.html', {'placa_cliente': placa_cliente } )
 
+def search_vehiculo(request):
+    if request.method == "POST":
+        searched = request.POST['searched']
+        vehiculo = Clientes.objects.filter(placa__contains =searched) 
+        # tipo = Clientes.objects.filter(tipo__contains =searched) 
+        
+        return render(request, 'accounts/search.html', {'searched': searched, 'vehiculo': vehiculo, } )
+    else: 
+        return render(request, 'accounts/search.html', {} )
+
+    
 
 def clientes(request):
     submitted = False
